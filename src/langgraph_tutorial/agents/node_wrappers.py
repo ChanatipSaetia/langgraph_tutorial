@@ -1,5 +1,5 @@
 from langgraph.graph.state import CompiledStateGraph
-from langchain_core.messages import AIMessage
+from langchain_core.messages import AIMessage, HumanMessage
 from ..state.agent_state import AgentState
 from typing import Callable, Awaitable
 
@@ -17,7 +17,8 @@ async def generic_node(
         AgentState: Updated state with the agent's response message.
     """
     agent = await init_agent()
-    output = await agent.ainvoke({"messages": state["messages"]})
+    messages = [message for message in state["messages"] if isinstance(message, HumanMessage) or isinstance(message, AIMessage)]
+    output = await agent.ainvoke({"messages": messages})
     current_length = len(state["messages"])
     left_message = output["messages"][current_length:-1]
     final_message = output["messages"][-1].content.strip()

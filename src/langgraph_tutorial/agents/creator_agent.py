@@ -29,6 +29,10 @@ async def handle_callback() -> tuple[str, str | None]:
         code = redirect_params.get("code", [""])[0]
         state = redirect_params.get("state", [None])[0]
         return code, state
+    elif "code" in main_params:
+        code = main_params.get("code", [""])[0]
+        state = main_params.get("state", [None])[0]
+        return code, state
     return "", None
 
 
