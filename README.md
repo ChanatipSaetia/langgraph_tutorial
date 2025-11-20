@@ -45,7 +45,7 @@ langgraph_tutorial/
    ```
 
 2. **Configure credentials**:
-   - In case you use the same model, Add your API keys and settings to `config/non_prod_credential.json` and add `GOOGLE_APPLICATION_CREDENTIALS=config/non_prod_credential.json` in `.env`.
+   - In case you use the same model, add `GOOGLE_APPLICATION_CREDENTIALS=<YOUR_GCP_CREDENTIAL>` in `.env`.
    - You can change the LLM in `src/langgraph_tutorial/llm_config.py` and create `.env` to add API keys as you want.
 
 3. **Run the main script**:
