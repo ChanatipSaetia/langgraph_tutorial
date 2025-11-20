@@ -1,5 +1,5 @@
 from langchain.agents import create_agent
-from src.langgraph_tutorial.llm_config import model
+from ..llm_config import model
 from langgraph.graph.state import CompiledStateGraph
 import asyncio
 from urllib.parse import parse_qs, urlparse

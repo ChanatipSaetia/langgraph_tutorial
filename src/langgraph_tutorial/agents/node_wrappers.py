@@ -1,10 +1,11 @@
+from langgraph.graph.state import CompiledStateGraph
 from langchain_core.messages import AIMessage
-from src.langgraph_tutorial.state.agent_state import AgentState
-from typing import Callable
+from ..state.agent_state import AgentState
+from typing import Callable, Awaitable
 
 
 async def generic_node(
-    state: AgentState, init_agent: Callable, agent_name: str
+    state: AgentState, init_agent: Callable[[], Awaitable[CompiledStateGraph]], agent_name: str
 ) -> AgentState:
     """
     Generic node wrapper for any agent. Invokes the agent and formats the output message.
