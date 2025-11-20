@@ -2,6 +2,7 @@ from langchain.agents import create_agent
 from src.langgraph_tutorial.llm_config import model
 from langgraph.graph.state import CompiledStateGraph
 
+
 async def init_supervisor_agent() -> CompiledStateGraph:
     """
     Initialize the supervisor agent with a specific prompt and no tools.
