@@ -1,0 +1,10 @@
+{
+    "dependencies": [
+        "langchain_openai",
+        "./src/langgraph_tutorial"
+    ],
+    "graphs": {
+        "workflow": "./src/langgraph_tutorial/main.py:workflow"
+    },
+    "env": "./.env"
+}
