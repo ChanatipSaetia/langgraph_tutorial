@@ -10,6 +10,10 @@ async def init_researcher_agent() -> CompiledStateGraph:
     Returns:
         CompiledStateGraph: The compiled state graph for the researcher agent.
     """
+
+    # researcher_tools = []
+
+    # With tools
     researcher_client = MultiServerMCPClient(
         {
             "langgraph": {
@@ -19,6 +23,7 @@ async def init_researcher_agent() -> CompiledStateGraph:
         }
     )
     researcher_tools = await researcher_client.get_tools()
+
     researcher_prompt = "You are a Researcher. Find and summarize information as requested. Always use search first"
     researcher_agent = create_agent(
         model,
